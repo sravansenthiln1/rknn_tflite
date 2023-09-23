@@ -7,7 +7,7 @@ Compatible with Edge2
 ## Run the examples
 Try the examples
 
-Note: make sure you have [setup the runtime requirements](https://github.com/sravansenthiln1/rknn_tflite#RKNN-Conversion)
+Note: make sure you have [setup the runtime requirements](https://github.com/sravansenthiln1/rknn_tflite#rknn-deployment)
 
 * [Sine Model](./sine_model/) - Basic Neural network TFLite model
 
