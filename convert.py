@@ -20,7 +20,6 @@ else:
  
 rknn = RKNN(verbose=True)
 
-# here the length of mean_values and std_values is dependent on the size of input shape last axis (this example its is 1)
 print('--> Config model')
 rknn.config(target_platform='rk3588s', optimization_level=0)
 print('done')
@@ -32,7 +31,7 @@ if ret != 0:
     exit(ret)
 print('done')
 
-# quantization must be disabled, this is what makes this possible.
+# quantization must be disabled.
 print('--> Building model')
 ret = rknn.build(do_quantization=False)
 if ret != 0:
