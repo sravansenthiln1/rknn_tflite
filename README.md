@@ -22,6 +22,8 @@ You can convert TFLite models to run the NPU using the `convert.py` conversion s
 
 **Requires:** Ubuntu 22.04/20.04/18.04 x86 Host computer.
 
+After you have cloned this repo:
+
 ### get the necessary system packages
 ```shell
 sudo apt-get install git python3 python3-dev python3-pip
@@ -64,6 +66,7 @@ pip3 install -r doc/requirements_$version-*.txt
 ### Install the appropriate toolkit wheel
 ```shell
 pip3 install packages/rknn_toolkit2-*-$version-$version-linux_x86_64.whl
+../
 ```
 
 ### Try using the conversion tool
@@ -71,10 +74,18 @@ pip3 install packages/rknn_toolkit2-*-$version-$version-linux_x86_64.whl
 python3 convert.py
 ```
 
+eg. to convert a file such as detect_model.tflite, run
+```shell
+python3 convert.py detect_model
+```
+in the same directory, a file called detect_model.rknn will have been created.
+
 ## RKNN Deployment
 To run it on your board, you need to install appropriate RKNN API wheel
 
 **Requires:** Edge2 with Ubuntu 22.04 OS.
+
+After cloning this repo:
 
 ### get the necessary system packages
 ```shell
@@ -116,6 +127,9 @@ checkout f29bfee21066a35a0a6b789208b630144735acd4
 ### Copy the runtime library
 ```shell
 sudo cp runtime/RK3588/Linux/librknn_api/aarch64/librknnrt.so /usr/lib/
+cd ../
 ```
+
+Now try the [examples](https://github.com/sravansenthiln1/rknn_tflite#run-the-examples)
 
 
