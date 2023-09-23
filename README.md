@@ -64,7 +64,6 @@ pip3 install -r doc/requirements_$version-*.txt
 ### Install the appropriate toolkit wheel
 ```shell
 pip3 install packages/rknn_toolkit2-*-$version-$version-linux_x86_64.whl
-cd ../
 ```
 
 ### Try using the conversion tool
