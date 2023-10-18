@@ -87,9 +87,14 @@ To run it on your board, you need to install appropriate RKNN API wheel
 
 After cloning this repo:
 
-### get the necessary system packages
+### Install pip
 ```shell
 sudo apt-get install python3-pip
+```
+
+### Install necessary python packages
+```shell
+pip3 install numpy pillow
 ```
 
 ### clone the toolkit
