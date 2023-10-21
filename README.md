@@ -39,7 +39,7 @@ git checkout f29bfee21066a35a0a6b789208b630144735acd4
 
 Note: at this point of time, you can also create a virtual environment to store all the packages you need.
 This will keep your system packages clean and not disturb their package versions.
-for this you need to install [conda](https://conda.io/projects/conda/en/stable/user-guide/install/linux.html)
+for this you need to install [Conda](https://conda.io/projects/conda/en/stable/user-guide/install/linux.html)
 ```
 conda create -n npu-env
 conda activate npu-env
@@ -126,7 +126,7 @@ cd ../../
 ```shell
 git clone https://github.com/rockchip-linux/rknpu2/
 cd rknpu2
-checkout f29bfee21066a35a0a6b789208b630144735acd4
+git checkout f29bfee21066a35a0a6b789208b630144735acd4
 ```
 
 ### Copy the runtime library
