@@ -21,7 +21,7 @@ IMAGE_PATH = "./sample.png"
 rknn_lite = RKNNLite()
 
 print('--> Load RKNN model')
-ret = rknn_lite.load_rknn('mobilenet_v1.rknn')
+ret = rknn_lite.load_rknn(MODEL_PATH)
 if ret != 0:
     print('Load RKNN model failed')
     exit(ret)

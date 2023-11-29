@@ -21,7 +21,7 @@ IMAGE_PATH = "./digit7.png"
 rknn_lite = RKNNLite()
 
 print('--> Load RKNN model')
-ret = rknn_lite.load_rknn('./digit_recognize_28.rknn')
+ret = rknn_lite.load_rknn(MODEL_PATH)
 if ret != 0:
     print('Load RKNN model failed')
     exit(ret)

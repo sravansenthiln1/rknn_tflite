@@ -15,7 +15,7 @@ Note: make sure you have [setup the runtime requirements](https://github.com/sra
 
 * [Mobilenet v1 Model](./mobilenet_v1/) - Mobilenet v1 image classification model
 
-
+* [YOLOv8n Model](./yolov8n/) - YOLOv8n image detection model
 
 ## RKNN Conversion
 You can convert TFLite models to run the NPU using the `convert.py` conversion script
@@ -94,14 +94,14 @@ sudo apt-get install python3-pip
 
 ### Install necessary python packages
 ```shell
-pip3 install numpy pillow
+pip3 install numpy pillow opencv-python
 ```
 
 ### clone the toolkit
 ```shell
 git clone https://github.com/rockchip-linux/rknn-toolkit2
 cd rknn-toolkit2
-git checkout f29bfee21066a35a0a6b789208b630144735acd4
+git checkout b7c3b5c3c6b2836fe98569bd2013d01ab614f055
 ```
 
 ### Find the system python version
@@ -119,7 +119,7 @@ and run the command accordingly
 ### Install the appropriate toolkit wheel
 ```shell
 pip3 install rknn_toolkit_lite2/packages/rknn_toolkit_lite2-*-$version-$version-linux_aarch64.whl
-cd ../../
+cd ../
 ```
 
 ### clone the RKNPU library
