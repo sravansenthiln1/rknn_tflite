@@ -4,18 +4,25 @@ adapted to run on Rockchip's RKNN NPU hardware platform.
 
 Compatible with Edge2
 
-## Run the examples
-Try the examples
-
+## Examples
 Note: make sure you have [setup the runtime requirements](https://github.com/sravansenthiln1/rknn_tflite#rknn-deployment)
 
-* [Sine Model](./sine_model/) - Basic Neural network TFLite model
+#### Simple Neural Networks
+| model | description |
+|---|---|
+|[Sine Model](./sine_model/) | Basic Neural network TFLite model |
+|[Digit recognize Model](./digit_recognize/) | Digit recognization model |
 
-* [Digit recognize Model](./digit_recognize/) - Digit recognization model
+#### Audio Processing
+| model | description |
+|---|---|
+| [Audio classifier Model](./audio_classifier/) | Audio classifier model |
 
-* [Mobilenet v1 Model](./mobilenet_v1/) - Mobilenet v1 image classification model
-
-* [YOLOv8n Model](./yolov8n/) - YOLOv8n image detection model
+#### Image processing
+| model | description |
+|---|---|
+| [Mobilenet v1 Model](./mobilenet_v1/) | Mobilenet v1 image classification model |
+| [YOLOv8n Model](./yolov8n/) | YOLOv8n image detection model |
 
 ## RKNN Conversion
 You can convert TFLite models to run the NPU using the `convert.py` conversion script
@@ -34,7 +41,7 @@ sudo apt-get install libxslt1-dev zlib1g-dev libglib2.0 libsm6 libgl1-mesa-glx l
 ```shell
 git clone https://github.com/rockchip-linux/rknn-toolkit2
 cd rknn-toolkit2
-git checkout f29bfee21066a35a0a6b789208b630144735acd4
+git checkout b7c3b5c3c6b2836fe98569bd2013d01ab614f055
 ```
 
 Note: at this point of time, you can also create a virtual environment to store all the packages you need.
@@ -94,7 +101,7 @@ sudo apt-get install python3-pip
 
 ### Install necessary python packages
 ```shell
-pip3 install numpy pillow opencv-python
+pip3 install numpy pillow opencv-python librosa
 ```
 
 ### clone the toolkit
@@ -136,5 +143,4 @@ cd ../
 ```
 
 Now try the [examples](https://github.com/sravansenthiln1/rknn_tflite#run-the-examples)
-
 
