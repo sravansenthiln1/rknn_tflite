@@ -3,7 +3,9 @@
 #
 
 import numpy as np
+import sounddevice as sd
 import librosa
+import sys
 import time
 
 from rknnlite.api import RKNNLite
@@ -18,6 +20,10 @@ MODEL_PATH = "./audio_classifier.rknn"
 # Audio path:
 AUDIO_PATH = "./sample.wav"
 
+# Other audio parameters
+DURATION = 5
+SR = 22050
+
 # Map the tag output to the appropriate string
 TAGS = {
         0:'none',
@@ -29,6 +35,29 @@ TAGS = {
         6:'mind'
 }
 
+def audio_callback(indata, frames, time, status):
+    if status:
+        print(f"error: {status}")
+    audio_data.append(indata.copy())
+
+try:
+    if (sys.argv[1] == 'm'):
+        audio_data = []
+        with sd.InputStream(callback=audio_callback, channels=1, samplerate=SR):
+            print(f"Recording {DURATION} seconds of audio...")
+            sd.sleep(int(DURATION * 1000))
+            print("Recording complete.")
+
+        scale = np.concatenate(audio_data, axis=0)
+        scale = scale[:110250, 0]
+        sr = SR
+except:
+    scale, sr = librosa.load(AUDIO_PATH)
+
+mel_spectrogram = librosa.feature.melspectrogram(y=scale, sr=sr, n_fft=4096, hop_length=512, n_mels=256, fmax=8000)
+log_mel_spectrogram = librosa.power_to_db(mel_spectrogram)
+log_mel_spectrogram = np.expand_dims(log_mel_spectrogram, axis=-1)
+
 rknn_lite = RKNNLite()
 
 print('--> Load RKNN model')
@@ -37,11 +66,6 @@ if ret != 0:
     print('Load RKNN model failed')
     exit(ret)
 print('done')
-
-scale, sr = librosa.load(AUDIO_PATH)
-mel_spectrogram = librosa.feature.melspectrogram(y=scale, sr=sr, n_fft=4096, hop_length=512, n_mels=256, fmax=8000)
-log_mel_spectrogram = librosa.power_to_db(mel_spectrogram)
-log_mel_spectrogram = np.expand_dims(log_mel_spectrogram, axis=-1)
 
 print('--> Init runtime environment')
 ret = rknn_lite.init_runtime()

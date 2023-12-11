@@ -3,7 +3,12 @@ Original implementation: https://github.com/sravansenthiln1/armnn_tflite/tree/ma
 
 tflite model convert with the `convert.py` script
 
-### Run the example
+### Run the example using sample.wav audio
 ```shell
 python3 run_rknn_inference.py
+```
+
+### Run the example using microphone audio
+```shell
+python3 run_rknn_inference.py m
 ```

@@ -101,7 +101,7 @@ sudo apt-get install python3-pip
 
 ### Install necessary python packages
 ```shell
-pip3 install numpy pillow opencv-python librosa
+pip3 install numpy pillow opencv-python librosa sounddevice
 ```
 
 ### clone the toolkit
