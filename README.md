@@ -23,6 +23,7 @@ Note: make sure you have [setup the runtime requirements](https://github.com/sra
 |---|---|
 | [Mobilenet v1 Model](./mobilenet_v1/) | Mobilenet v1 image classification model |
 | [YOLOv8n Model](./yolov8n/) | YOLOv8n image detection model |
+| [Auto crop Model](./auto_crop/) | Automatic document crop model |
 
 ## RKNN Conversion
 You can convert TFLite models to run the NPU using the `convert.py` conversion script
