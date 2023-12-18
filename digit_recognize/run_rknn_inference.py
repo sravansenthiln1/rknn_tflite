@@ -38,6 +38,8 @@ if ret != 0:
     exit(ret)
 print('done')
 
+img = np.array([img])
+
 st = time.time()
 output = rknn_lite.inference(inputs=[img])
 en = time.time()

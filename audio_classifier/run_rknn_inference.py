@@ -74,6 +74,8 @@ if ret != 0:
     exit(ret)
 print('done')
 
+log_mel_spectrogram = np.array([log_mel_spectrogram])
+
 st = time.time()
 output = rknn_lite.inference(inputs=[log_mel_spectrogram])
 en = time.time()

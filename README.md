@@ -42,7 +42,7 @@ sudo apt-get install libxslt1-dev zlib1g-dev libglib2.0 libsm6 libgl1-mesa-glx l
 ```shell
 git clone https://github.com/rockchip-linux/rknn-toolkit2
 cd rknn-toolkit2
-git checkout b7c3b5c3c6b2836fe98569bd2013d01ab614f055
+git checkout b25dadacc24b88eb7dfcaa47c9c525ecca89b319
 ```
 
 Note: at this point of time, you can also create a virtual environment to store all the packages you need.
@@ -62,19 +62,22 @@ python3 --version
 and run the command accordingly
 | python version | command |
 |---|---|
+| 3.11 | `version=cp311` |
 | 3.10 | `version=cp310` |
+| 3.9 | `version=cp39` |
 | 3.8 | `version=cp38` |
+| 3.7 | `version=cp37` |
 | 3.6 | `version=cp36` |
 
 ### Install the requirements
 ```shell
-pip3 install -r doc/requirements_$version-*.txt
+pip3 install -r rknn-toolkit2/packages/requirements_$version-*.txt
 ```
 
 ### Install the appropriate toolkit wheel
 ```shell
-pip3 install packages/rknn_toolkit2-*-$version-$version-linux_x86_64.whl
-../
+pip3 install rknn-toolkit2/packages/rknn_toolkit2-*-$version-$version-linux_x86_64.whl
+cd ../
 ```
 
 ### Try using the conversion tool
@@ -109,7 +112,7 @@ pip3 install numpy pillow opencv-python librosa sounddevice
 ```shell
 git clone https://github.com/rockchip-linux/rknn-toolkit2
 cd rknn-toolkit2
-git checkout b7c3b5c3c6b2836fe98569bd2013d01ab614f055
+git checkout b25dadacc24b88eb7dfcaa47c9c525ecca89b319
 ```
 
 ### Find the system python version
@@ -121,25 +124,19 @@ and run the command accordingly
 |---|---|
 | 3.11 | `version=cp311` |
 | 3.10 | `version=cp310` |
+| 3.9 | `version=cp39` |
 | 3.8 | `version=cp38` |
+| 3.7 | `version=cp37` |
 | 3.6 | `version=cp36` |
 
 ### Install the appropriate toolkit wheel
 ```shell
 pip3 install rknn_toolkit_lite2/packages/rknn_toolkit_lite2-*-$version-$version-linux_aarch64.whl
-cd ../
-```
-
-### clone the RKNPU library
-```shell
-git clone https://github.com/rockchip-linux/rknpu2/
-cd rknpu2
-git checkout f29bfee21066a35a0a6b789208b630144735acd4
 ```
 
 ### Copy the runtime library
 ```shell
-sudo cp runtime/RK3588/Linux/librknn_api/aarch64/librknnrt.so /usr/lib/
+sudo cp rknpu2/runtime/Linux/librknn_api/aarch64/librknnrt.so /usr/lib/
 cd ../
 ```
 
